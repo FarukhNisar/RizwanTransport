@@ -1,6 +1,6 @@
 /* =========================================================
    RIZWAN TRANSPORT & TRÄDGÅRD AB
-   CLEAN PROFESSIONAL HOMEPAGE CSS
+   FULLY RESPONSIVE CSS
    ========================================================= */
 
 * {
@@ -24,16 +24,21 @@ a {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+}
+
 /* =========================================================
    HEADER
    ========================================================= */
 
 .site-header {
   min-height: 72px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5%;
+  padding: 0 clamp(16px, 5vw, 70px);
   position: sticky;
   top: 0;
   background: #fff;
@@ -44,31 +49,35 @@ a {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
+  flex-shrink: 0;
 }
 
 .brand-mark {
-  font-size: 34px;
+  font-size: clamp(24px, 3vw, 34px);
 }
 
 .brand strong {
   display: block;
-  font-size: 24px;
+  font-size: clamp(17px, 2vw, 24px);
   letter-spacing: 1px;
+  line-height: 1.1;
 }
 
 .brand small {
   display: block;
   color: #149447;
   font-weight: 700;
+  font-size: clamp(8px, 1vw, 12px);
 }
 
 nav {
   display: flex;
   align-items: center;
-  gap: 24px;
-  font-size: 14px;
-  font-weight: 600;
+  gap: clamp(8px, 1.5vw, 24px);
+  font-size: clamp(11px, 1.1vw, 14px);
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 nav a:hover {
@@ -77,15 +86,15 @@ nav a:hover {
 
 .nav-cta,
 .btn {
-  padding: 12px 20px;
-  border-radius: 10px;
+  padding: 10px 18px;
+  border-radius: 9px;
   font-weight: 800;
 }
 
 .nav-cta,
 .primary {
   background: #099447;
-  color: white;
+  color: #fff;
 }
 
 .menu-toggle {
@@ -93,6 +102,7 @@ nav a:hover {
   border: 0;
   background: none;
   font-size: 28px;
+  cursor: pointer;
 }
 
 /* =========================================================
@@ -102,14 +112,13 @@ nav a:hover {
 .hero {
   position: relative;
   width: 100%;
-  height: 520px;
-  min-height: 520px;
+  min-height: clamp(400px, 42vw, 540px);
+  height: clamp(400px, 42vw, 540px);
   overflow: hidden;
-  display: block;
-  color: white;
+  color: #fff;
 }
 
-/* FULL HERO PHOTO */
+/* Photo fills entire hero */
 .hero-art {
   position: absolute !important;
   inset: 0 !important;
@@ -130,7 +139,7 @@ nav a:hover {
   object-position: center center !important;
 }
 
-/* Dark gradient over photo */
+/* Photo overlay */
 .hero-art::after {
   content: "";
   position: absolute;
@@ -140,26 +149,25 @@ nav a:hover {
 
   background: linear-gradient(
     90deg,
-    rgba(0, 35, 30, 0.82) 0%,
-    rgba(0, 35, 30, 0.62) 32%,
-    rgba(0, 35, 30, 0.28) 55%,
-    rgba(0, 0, 0, 0.08) 100%
+    rgba(0, 35, 30, .84) 0%,
+    rgba(0, 35, 30, .62) 32%,
+    rgba(0, 35, 30, .25) 60%,
+    rgba(0, 0, 0, .05) 100%
   );
 }
 
 /* =========================================================
-   HERO TEXT
+   HERO CONTENT
    ========================================================= */
 
 .hero-content {
   position: relative;
   z-index: 5;
 
-  width: 60%;
-  max-width: 700px;
+  width: min(62%, 720px);
   height: 100%;
 
-  padding: 55px 45px;
+  padding: clamp(30px, 5vw, 70px);
 
   display: flex;
   flex-direction: column;
@@ -167,8 +175,9 @@ nav a:hover {
 }
 
 .eyebrow {
-  font-size: 13px;
-  letter-spacing: 2px;
+  margin: 0 0 8px;
+  font-size: clamp(9px, 1vw, 13px);
+  letter-spacing: 1.5px;
   font-weight: 900;
   color: #0b9b4b;
 }
@@ -177,11 +186,11 @@ nav a:hover {
   color: #f5ce32;
 }
 
-.hero-content h1 {
-  color: white;
-  font-size: clamp(42px, 5vw, 68px);
-  line-height: 0.98;
-  margin: 10px 0 20px;
+.hero h1 {
+  color: #fff;
+  font-size: clamp(38px, 5vw, 68px);
+  line-height: .98;
+  margin: 8px 0 18px;
   font-weight: 850;
   text-shadow: 0 3px 15px rgba(0,0,0,.25);
 }
@@ -192,10 +201,10 @@ nav a:hover {
 
 .hero-text {
   max-width: 600px;
-  color: white;
-  font-size: 17px;
+  color: #fff;
+  font-size: clamp(13px, 1.4vw, 18px);
   line-height: 1.5;
-  margin-bottom: 18px;
+  margin: 0 0 15px;
 }
 
 /* =========================================================
@@ -205,19 +214,19 @@ nav a:hover {
 .actions {
   display: flex;
   align-items: center;
-  gap: 10px;
   flex-wrap: wrap;
-  margin-top: 10px;
+  gap: 9px;
+  margin-top: 5px;
   position: relative;
   z-index: 10;
 }
 
 .actions .btn {
-  padding: 10px 17px;
-  min-height: 42px;
+  padding: clamp(7px, 1vw, 11px) clamp(11px, 1.5vw, 18px);
+  min-height: 38px;
   border-radius: 9px;
-  font-size: 13px;
-  font-weight: 800;
+  font-size: clamp(10px, 1.1vw, 13px);
+  white-space: nowrap;
 }
 
 .taxi-btn {
@@ -226,13 +235,13 @@ nav a:hover {
 }
 
 .ghost {
-  border: 1px solid white;
-  color: white;
+  border: 1px solid #fff;
+  color: #fff;
   background: rgba(255,255,255,.08);
 }
 
 /* =========================================================
-   TRUST BAR
+   TRUST
    ========================================================= */
 
 .trust {
@@ -246,8 +255,8 @@ nav a:hover {
 #tjanster {
   position: relative;
   z-index: 20;
-  margin-top: -65px;
-  padding: 0 0 20px;
+  margin-top: clamp(-65px, -5vw, -30px);
+  padding: 0 0 30px;
   background: transparent;
 }
 
@@ -256,67 +265,78 @@ nav a:hover {
 }
 
 #tjanster .cards {
+  width: min(1400px, 94%);
+  margin: auto;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 28px;
+  gap: clamp(10px, 1.5vw, 18px);
 }
 
 #tjanster .card {
   background: rgba(255,255,255,.98);
   border-radius: 16px;
-  padding: 18px;
-
-  min-height: 145px;
+  padding: clamp(14px, 1.6vw, 22px);
+  min-height: 150px;
 
   border: 1px solid rgba(0,0,0,.06);
 
   box-shadow:
     0 12px 35px rgba(0,0,0,.18);
 
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 #tjanster .card:hover {
-  transform: translateY(-7px);
-
-  box-shadow:
-    0 20px 42px rgba(0,0,0,.24);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 42px rgba(0,0,0,.23);
 }
 
 #tjanster .card-icon {
-  width: 46px;
-  height: 46px;
+  width: clamp(38px, 4vw, 48px);
+  height: clamp(38px, 4vw, 48px);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   border-radius: 50%;
-
   background: #087443;
-  color: white;
+  color: #fff;
 
-  font-size: 24px;
+  font-size: clamp(19px, 2vw, 25px);
   margin-bottom: 8px;
 }
 
 #tjanster .card h3 {
   margin: 3px 0 5px;
-  font-size: 19px;
+  font-size: clamp(16px, 1.7vw, 21px);
   color: #12352a;
 }
 
 #tjanster .card p {
   margin: 0;
   color: #59645f;
-  font-size: 13px;
+  font-size: clamp(11px, 1.1vw, 14px);
   line-height: 1.4;
+}
+
+#tjanster .card ul {
+  padding-left: 18px;
+  color: #53655e;
+  font-size: clamp(10px, 1vw, 13px);
+}
+
+#tjanster .card li {
+  margin: 3px 0;
+}
+
+#tjanster .card a {
+  display: inline-block;
+  margin-top: 6px;
+  color: #079449;
+  font-weight: 800;
+  font-size: clamp(10px, 1vw, 13px);
 }
 
 /* =========================================================
@@ -324,7 +344,7 @@ nav a:hover {
    ========================================================= */
 
 .section {
-  padding: 75px 5%;
+  padding: clamp(45px, 6vw, 75px) 5%;
 }
 
 .section-heading {
@@ -336,59 +356,9 @@ nav a:hover {
 .section h2,
 .about h2,
 .contact h2 {
-  font-size: 38px;
+  font-size: clamp(28px, 3.2vw, 38px);
   line-height: 1.15;
   margin: 5px 0 12px;
-}
-
-/* =========================================================
-   OTHER CARDS
-   ========================================================= */
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  max-width: 1250px;
-  margin: auto;
-}
-
-.card {
-  padding: 28px;
-  border: 1px solid #e2e9e5;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px #12302a0d;
-  background: white;
-}
-
-.card.featured {
-  border-top: 5px solid #f5ce32;
-}
-
-.card-icon {
-  font-size: 42px;
-}
-
-.card h3 {
-  font-size: 23px;
-  margin: 8px 0;
-}
-
-.card ul {
-  padding-left: 20px;
-  color: #53655e;
-  font-size: 14px;
-}
-
-.card li {
-  margin: 5px 0;
-}
-
-.card a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #079449;
-  font-weight: 800;
 }
 
 /* =========================================================
@@ -398,19 +368,18 @@ nav a:hover {
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: clamp(30px, 5vw, 60px);
   align-items: center;
 
-  padding: 75px 7%;
+  padding: clamp(50px, 7vw, 80px) 7%;
   background: #f3f8f5;
 }
 
 .about-visual {
-  min-height: 350px;
+  min-height: clamp(280px, 30vw, 350px);
   border-radius: 22px;
 
-  background:
-    linear-gradient(135deg,#145c43,#88b76d);
+  background: linear-gradient(135deg,#145c43,#88b76d);
 
   display: flex;
   flex-direction: column;
@@ -422,15 +391,15 @@ nav a:hover {
 }
 
 .about-visual span {
-  font-size: 130px;
+  font-size: clamp(80px, 10vw, 130px);
 }
 
 .about-visual b {
-  font-size: 26px;
+  font-size: clamp(19px, 2vw, 26px);
 }
 
 .about-visual small {
-  font-size: 17px;
+  font-size: clamp(12px, 1.4vw, 17px);
 }
 
 .values {
@@ -476,8 +445,7 @@ nav a:hover {
   height: 180px;
   border-radius: 12px;
 
-  background:
-    linear-gradient(145deg,#d5e8d4,#659c68);
+  background: linear-gradient(145deg,#d5e8d4,#659c68);
 
   display: flex;
   align-items: center;
@@ -498,15 +466,13 @@ nav a:hover {
    ========================================================= */
 
 .contact {
-  padding: 75px 7%;
+  padding: clamp(50px, 7vw, 80px) 7%;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: clamp(30px, 5vw, 60px);
 
-  background:
-    linear-gradient(120deg,#043e35,#0b654d);
-
+  background: linear-gradient(120deg,#043e35,#0b654d);
   color: white;
 }
 
@@ -515,7 +481,7 @@ nav a:hover {
 }
 
 .contact h2 {
-  font-size: 45px;
+  font-size: clamp(32px, 4vw, 45px);
 }
 
 .contact-info > a,
@@ -529,8 +495,7 @@ nav a:hover {
   background: white;
   color: #16352d;
   border-radius: 15px;
-  padding: 30px;
-
+  padding: clamp(20px, 3vw, 30px);
   box-shadow: 0 20px 50px #0003;
 }
 
@@ -604,10 +569,8 @@ footer a {
 
 footer > small {
   grid-column: 1/-1;
-
   border-top: 1px solid #ffffff22;
   padding-top: 20px;
-
   color: #9cafaa;
 }
 
@@ -615,27 +578,29 @@ footer > small {
    TABLET
    ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
 
-  .hero {
-    height: 500px;
-    min-height: 500px;
+  .site-header {
+    padding: 0 3%;
+  }
+
+  nav {
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .nav-cta {
+    padding: 8px 11px;
   }
 
   .hero-content {
     width: 65%;
-    padding: 40px 35px;
-  }
-
-  .hero-content h1 {
-    font-size: 48px;
   }
 
   #tjanster .cards {
     grid-template-columns: repeat(2,1fr);
   }
 
-  .about,
   .contact {
     grid-template-columns: 1fr;
   }
@@ -643,235 +608,148 @@ footer > small {
   .gallery-grid {
     grid-template-columns: repeat(3,1fr);
   }
-
-  .values {
-    grid-template-columns: repeat(2,1fr);
-  }
-
-  footer {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* =========================================================
-   MOBILE
-   ========================================================= */
-/* =========================================================
-   MOBILE VIEW - SAME STYLE AS DESKTOP SITE
+   PHONE
    ========================================================= */
 
 @media (max-width: 700px) {
 
-  /* HEADER - desktop style on mobile */
+  /* HEADER */
   .site-header {
-    height: 48px;
-    min-height: 48px;
-    padding: 0 3%;
+    min-height: 64px;
+    height: 64px;
+    padding: 0 15px;
   }
 
-  .brand {
-    gap: 5px;
+  .menu-toggle {
+    display: block;
   }
 
-  .brand-mark {
-    font-size: 22px;
-  }
-
-  .brand strong {
-    font-size: 16px;
-    letter-spacing: .5px;
-  }
-
-  .brand small {
-    font-size: 7px;
-  }
-
-  /* SHOW NAVIGATION */
   nav {
-    display: flex !important;
-    position: static !important;
-    padding: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
+    display: none;
 
-    flex-direction: row !important;
-    align-items: center;
-    gap: 12px;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
 
-    font-size: 8px;
+    background: #fff;
+    padding: 18px;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+  }
+
+  nav.open {
+    display: flex;
   }
 
   nav a {
-    white-space: nowrap;
+    padding: 10px;
+    font-size: 14px;
   }
 
   nav .nav-cta {
-    padding: 7px 10px;
-    font-size: 8px;
-    border-radius: 7px;
+    text-align: center;
+    margin-top: 5px;
   }
 
-  /* Hide hamburger */
-  .menu-toggle {
-    display: none !important;
-  }
-
-  /* =====================================================
-     HERO
-     ===================================================== */
-
+  /* HERO */
   .hero {
-    height: 350px !important;
-    min-height: 350px !important;
-    overflow: hidden !important;
-  }
-
-  .hero-art {
-    display: block !important;
-    position: absolute !important;
-
-    inset: 0 !important;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    min-height: 0 !important;
-
-    z-index: 1 !important;
+    height: clamp(400px, 105vw, 520px);
+    min-height: clamp(400px, 105vw, 520px);
   }
 
   .hero-art img {
-    display: block !important;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    min-height: 0 !important;
-
-    object-fit: cover !important;
-    object-position: center center !important;
+    object-position: 60% center !important;
   }
 
-  /* Dark overlay */
   .hero-art::after {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(0,35,30,.80) 0%,
-        rgba(0,35,30,.55) 45%,
-        rgba(0,0,0,.08) 100%
-      ) !important;
+    background: linear-gradient(
+      180deg,
+      rgba(0,35,30,.78) 0%,
+      rgba(0,35,30,.52) 48%,
+      rgba(0,0,0,.22) 100%
+    );
   }
-
-  /* =====================================================
-     HERO TEXT
-     ===================================================== */
 
   .hero-content {
-    width: 55% !important;
-    height: 100% !important;
-
-    padding: 45px 25px !important;
-
-    justify-content: center !important;
-
-    position: relative !important;
-    z-index: 5 !important;
+    width: 100%;
+    height: 100%;
+    padding: 35px 22px;
+    justify-content: center;
   }
 
   .hero-content .eyebrow {
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 1px;
-    margin-bottom: 5px;
   }
 
-  .hero-content h1 {
-    font-size: 31px !important;
-    line-height: 1 !important;
-    margin: 5px 0 10px !important;
+  .hero h1 {
+    font-size: clamp(34px, 10vw, 46px);
+    margin: 7px 0 13px;
   }
 
   .hero-text {
-    font-size: 11px !important;
-    line-height: 1.4 !important;
-    margin-bottom: 8px !important;
+    font-size: clamp(13px, 3.5vw, 16px);
+    line-height: 1.45;
+    max-width: 95%;
   }
 
-  /* =====================================================
-     BUTTONS
-     ===================================================== */
-
   .actions {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-
-    gap: 6px !important;
-    margin-top: 5px !important;
+    gap: 7px;
+    margin-top: 6px;
   }
 
   .actions .btn {
-    padding: 7px 10px !important;
-    min-height: 30px !important;
-
-    font-size: 9px !important;
-    border-radius: 7px !important;
-
-    white-space: nowrap;
+    padding: 8px 11px;
+    min-height: 36px;
+    font-size: 10px;
   }
 
-  /* =====================================================
-     SERVICES - 2 COLUMNS
-     ===================================================== */
-
+  /* SERVICES */
   #tjanster {
-    margin-top: -5px !important;
-    padding-top: 10px !important;
+    margin-top: 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
     background: #f7faf8;
   }
 
   #tjanster .cards {
-    display: grid !important;
-
-    grid-template-columns: repeat(2, 1fr) !important;
-
-    gap: 10px !important;
-
-    padding: 0 20px !important;
+    width: 100%;
+    padding: 0 14px;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
   }
 
   #tjanster .card {
-    min-height: 215px !important;
-
-    padding: 12px !important;
-
-    border-radius: 12px !important;
-
-    box-shadow:
-      0 7px 20px rgba(0,0,0,.12) !important;
+    min-height: 175px;
+    padding: 14px;
+    border-radius: 13px;
   }
 
   #tjanster .card-icon {
-    width: 34px !important;
-    height: 34px !important;
-
-    font-size: 18px !important;
-
-    margin-bottom: 5px !important;
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
   }
 
   #tjanster .card h3 {
-    font-size: 15px !important;
-    margin: 3px 0 5px !important;
+    font-size: 16px;
   }
 
   #tjanster .card p {
-    font-size: 10px !important;
-    line-height: 1.35 !important;
+    font-size: 11px;
   }
 
   #tjanster .card ul {
-    font-size: 9px !important;
+    font-size: 10px;
     padding-left: 14px;
   }
 
@@ -879,64 +757,98 @@ footer > small {
     margin: 2px 0;
   }
 
-  #tjanster .card a {
-    font-size: 10px;
-  }
-
-  /* =====================================================
-     ABOUT
-     ===================================================== */
-
+  /* ABOUT */
   .about {
-    display: block !important;
-    padding: 35px 7% !important;
-  }
-
-  .about-visual {
-    min-height: 245px;
-    margin-bottom: 35px;
-  }
-
-  .about-visual span {
-    font-size: 90px;
-  }
-
-  .about-visual b {
-    font-size: 18px;
-  }
-
-  .about-visual small {
-    font-size: 12px;
-  }
-
-  .about h2 {
-    font-size: 25px;
-  }
-
-  /* =====================================================
-     OTHER SECTIONS
-     ===================================================== */
-
-  .section {
+    grid-template-columns: 1fr;
     padding: 45px 6%;
+    gap: 30px;
   }
 
+  .values {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  /* GALLERY */
   .gallery-grid {
     grid-template-columns: repeat(2,1fr);
   }
 
+  .gallery-grid div {
+    height: 145px;
+    font-size: 45px;
+  }
+
+  .gallery-grid span {
+    font-size: 12px;
+  }
+
+  /* CONTACT */
   .contact {
     grid-template-columns: 1fr;
     padding: 45px 6%;
     gap: 30px;
   }
 
-  .contact h2 {
-    font-size: 32px;
-  }
-
+  /* FOOTER */
   footer {
     grid-template-columns: 1fr;
-    padding: 30px 6%;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .brand strong {
+    font-size: 15px;
+  }
+
+  .brand small {
+    font-size: 7px;
+  }
+
+  .hero {
+    height: 430px;
+    min-height: 430px;
+  }
+
+  .hero-content {
+    padding: 28px 17px;
+  }
+
+  .hero h1 {
+    font-size: 33px;
+  }
+
+  .hero-text {
+    font-size: 12px;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .actions .btn {
+    font-size: 9px;
+    padding: 7px 9px;
+  }
+
+  #tjanster .card {
+    min-height: 160px;
+    padding: 11px;
+  }
+
+  #tjanster .card h3 {
+    font-size: 14px;
+  }
+
+  #tjanster .card p {
+    font-size: 10px;
+  }
+
+  #tjanster .card ul {
+    font-size: 9px;
   }
 }
