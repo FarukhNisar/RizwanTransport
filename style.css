@@ -240,3 +240,261 @@
     padding: 0 18px;
   }
 }
+/* =========================================================
+   RIZWAN PROFESSIONAL HOMEPAGE
+   Full photo hero + services visible on first screen
+   ========================================================= */
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 500px;
+  min-height: 500px;
+  overflow: hidden;
+  display: block;
+}
+
+/* Full background photo */
+.hero-art {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-art img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Dark gradient only on left side */
+.hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 25, 20, 0.82) 0%,
+    rgba(0, 25, 20, 0.58) 35%,
+    rgba(0, 25, 20, 0.12) 65%,
+    rgba(0, 25, 20, 0.02) 100%
+  );
+  z-index: 1;
+}
+
+/* Text over photo */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 55%;
+  height: 100%;
+  padding: 55px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Small yellow heading */
+.hero-content .eyebrow {
+  color: #ffd21c;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+/* Main heading */
+.hero-content h1 {
+  color: white;
+  font-size: clamp(42px, 5vw, 70px);
+  line-height: 0.98;
+  font-weight: 850;
+  margin: 0 0 20px;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.25);
+}
+
+/* Description */
+.hero-content .hero-text {
+  color: white;
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 600px;
+  margin-bottom: 25px;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.actions .btn {
+  border-radius: 10px;
+  padding: 14px 22px;
+  font-weight: 750;
+}
+
+/* =========================================================
+   TRUST BAR
+   Hide it so services can appear on first screen
+   ========================================================= */
+
+.trust {
+  display: none !important;
+}
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+#tjanster {
+  position: relative;
+  z-index: 10;
+  margin-top: -65px !important;
+  padding-top: 0 !important;
+  background: transparent;
+}
+
+/* Hide large services heading */
+#tjanster .section-heading {
+  display: none !important;
+}
+
+/* Four cards */
+#tjanster .cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* Card */
+#tjanster .card {
+  background: rgba(255,255,255,0.98);
+  border-radius: 17px;
+  padding: 20px 18px;
+  min-height: 150px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.20);
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all .25s ease;
+}
+
+/* Card hover */
+#tjanster .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+/* Card icons */
+#tjanster .card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #087443;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+/* Card titles */
+#tjanster .card h3 {
+  margin: 4px 0 6px;
+  font-size: 20px;
+  color: #12352a;
+}
+
+/* Card text */
+#tjanster .card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #59645f;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+  position: relative;
+  z-index: 100;
+  min-height: 72px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero {
+    height: 500px;
+    min-height: 500px;
+  }
+
+  .hero-content {
+    width: 65%;
+    padding: 45px 35px;
+  }
+
+  .hero-content h1 {
+    font-size: 48px;
+  }
+
+  #tjanster .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .hero {
+    height: 600px;
+    min-height: 600px;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 45px 22px;
+    justify-content: flex-start;
+    padding-top: 55px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .hero-content .hero-text {
+    font-size: 15px;
+  }
+
+  .hero-art img {
+    object-position: 58% center !important;
+  }
+
+  #tjanster {
+    margin-top: 0 !important;
+    padding-top: 30px !important;
+  }
+
+  #tjanster .cards {
+    grid-template-columns: 1fr;
+    padding: 0 18px;
+  }
+}
